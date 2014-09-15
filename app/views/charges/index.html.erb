@@ -1,0 +1,72 @@
+<h1>Failed Charges</h1> 
+  
+<table>
+  <thead>
+    <tr>
+      <th>Customer Name</th>
+      <th>Amount</th>
+      <th>Date Charged</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @failed.each do |f| %>
+      <tr style="background-color: #FF0000;">
+        <td><%= f.firstname  %>, <%= f.lastname %></td>             
+        <td><%= number_to_currency(f.amount / 100) %></td>
+        <td><%= f.created_at.to_datetime.strftime('%Y-%m-%d %H:%M:%S') %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<h1>Disputed Charges</h1> 
+  
+<table>
+  <thead>
+    <tr>
+      <th>Customer Name</th>
+      <th>Amount</th>
+      <th>Date Charged</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @disputed.each do |d| %>
+      <tr style="background-color: #FF5400;">
+        <td><%= d.firstname  %>, <%= d.lastname %></td>             
+        <td><%= number_to_currency(d.amount / 100) %></td>
+        <td><%= d.created_at.to_datetime.strftime('%Y-%m-%d %H:%M:%S') %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<h1>Successful Charges</h1> 
+  
+<table>
+  <thead>
+    <tr>
+      <th>Customer Name</th>
+      <th>Amount</th>
+      <th>Date Charged</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @success.each do |s| %>
+      <tr>
+        <td><%= s.firstname  %>, <%= s.lastname %></td>             
+        <td><%= number_to_currency(s.amount / 100) %></td>
+        <td><%= s.created_at.to_datetime.strftime('%Y-%m-%d %H:%M:%S') %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
